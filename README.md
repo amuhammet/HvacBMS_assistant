@@ -7,6 +7,24 @@ A local-first building management and HVAC project studio starter. The first ver
 
 Live protocol writes are intentionally not implemented. BACnet/IP, Modbus TCP/RTU, MQTT, and Home Assistant are planned adapter integrations; the current adapter surface is read-only and simulation-first.
 
+# Layout
+
+HvacBMS_assistant/
+└── backend/
+    └── app/
+        ├── main.py             # Uygulamanın ana giriş noktası
+        ├── adapters/           # Modbus, Simulator, BACnet adaptörleri
+        │   ├── base.py
+        │   ├── simulator.py
+        │   └── modbus.py
+        ├── routers/            # API Endpoint/Rota tanımlamaları
+        │   ├── projects.py
+        │   ├── equipment.py
+        │   ├── points.py
+        │   └── control.py      # <--- TAM OLARAK BURADA OLMALI
+        └── services/           # BMS motoru ve merkezi yönetim
+            └── bms_engine.py
+
 ## Requirements
 
 - Node.js 20+
